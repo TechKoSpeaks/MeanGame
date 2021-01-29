@@ -16,3 +16,24 @@ Add a `SERVER_SECRET` to the Heroku config for the app. (See [Configuration and 
   SERVER_SECRET = <your_secret_for_session_signing>
   ```
 - Run `npm run watch` to start development server using nodemon.
+# Project-2
+
+
+
+-----------------------------------------------------------------
+What I need from the Datamaps API
+1. First get map with borders and display
+assign id to land
+2. getLandID() - click on land returns id
+4. getLandName() - click on land, get name [THIS MIGHT BE POINTLESS SINCE I MIGHT ONLY NEED GETLANDID()]
+5. getLandPlot() - get coordinates of land
+6. Change color of map depending on who owns (black for none, green for available to buy, unique color for brought )
+
+
+<!-- 3. getResourceCost() - click on land returns resource cost -->
+Map Model
+1. ID - INT
+2. Name - VARCHAR
+3. Resouce Cost - INT
+4. Owned by - INT ID
+5. Land Plot Coordinates - VARCHAR (LAT X LONG)
