@@ -1,7 +1,7 @@
 // Requiring our models and passport as we've configured it
 const db = require("../models");
 
-module.exports = function (app) {
+module.exports = function(app) {
   // Add a new land
   app.post("/api/lands", (req, res) => {
     db.Land.create(req.body).then(dbLands => {
