@@ -1,328 +1,352 @@
-/* eslint-disable no-unused-vars */
-const states = {
+const States = {
   AZ: {
-    fillKey: setLandColor(this.isOwned, this.ownedBy),
-    name: "New Jersey",
+    fillKey: "defaultFill",
+    stateName: "Arizona",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   CO: {
     fillKey: "broughtByOpponent",
-    name: "New Jersey",
+    stateName: "Colorado",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   DE: {
     fillKey: "defaultFill",
-    name: "New Jersey",
+    stateName: "Delaware",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   FL: {
     fillKey: "defaultFill",
-    name: "New Jersey",
+    stateName: "Florida",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   GA: {
     fillKey: "defaultFill",
-    name: "New Jersey",
+    stateName: "Georgia",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   HI: {
     fillKey: "defaultFill",
-    name: "New Jersey",
+    stateName: "Hawaii",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   ID: {
     fillKey: "defaultFill",
-    name: "New Jersey",
+    stateName: "Idaho",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   IL: {
     fillKey: "defaultFill",
-    name: "New Jersey",
+    stateName: "Illinois",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   IN: {
     fillKey: "defaultFill",
-    name: "New Jersey",
+    stateName: "Indiana",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   IA: {
     fillKey: "defaultFill",
-    name: "New Jersey",
+    stateName: "Iowa",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   KS: {
     fillKey: "defaultFill",
-    name: "New Jersey",
+    stateName: "Kansas",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   KY: {
     fillKey: "defaultFill",
-    name: "New Jersey",
+    stateName: "Kentucky",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   LA: {
     fillKey: "defaultFill",
-    name: "New Jersey",
+    stateName: "Louisiana",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   MD: {
     fillKey: "defaultFill",
-    name: "New Jersey",
+    stateName: "Maryland",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   ME: {
     fillKey: "defaultFill",
-    name: "New Jersey",
+    stateName: "Maine",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   MA: {
     fillKey: "defaultFill",
-    name: "New Jersey",
+    stateName: "Massachusetts",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   MN: {
     fillKey: "defaultFill",
-    name: "New Jersey",
+    stateName: "Minnesota",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   MI: {
     fillKey: "defaultFill",
-    name: "New Jersey",
+    stateName: "Michigan",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   MS: {
     fillKey: "defaultFill",
-    name: "New Jersey",
+    stateName: "Mississippi",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   MO: {
     fillKey: "defaultFill",
-    name: "New Jersey",
+    stateName: "Missouri",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   MT: {
-    name: "New Jersey",
+    fillKey: "defaultFill",
+    stateName: "Montana",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   NC: {
-    name: "New Jersey",
+    fillKey: "defaultFill",
+    stateName: "North Carolina",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   NE: {
-    name: "New Jersey",
+    fillKey: "defaultFill",
+    stateName: "Nebraska",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   NV: {
-    name: "New Jersey",
+    fillKey: "defaultFill",
+    stateName: "Nevada",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   NH: {
-    name: "New Jersey",
+    fillKey: "defaultFill",
+    stateName: "New Hampshire",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   NJ: {
-    fillKey: setLandColor(this.isOwned, this.ownedBy),
-    name: "New Jersey",
+    fillKey: "defaultFill",
+    stateName: "New Jersey",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   NY: {
     fillKey: "defaultFill",
-    name: "New York",
+    stateName: "New York",
     resourceCost: 10,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   ND: {
     fillKey: "defaultFill",
-    name: "North Dakota",
+    stateName: "North Dakota",
     resourceCost: 20,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   NM: {
-    name: "New Jersey",
+    fillKey: "defaultFill",
+    stateName: "New Mexico",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   OH: {
-    name: "New Jersey",
+    fillKey: "defaultFill",
+    stateName: "Ohio",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   OK: {
-    name: "New Jersey",
+    fillKey: "defaultFill",
+    stateName: "Oklahoma",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   OR: {
-    name: "New Jersey",
+    fillKey: "defaultFill",
+    stateName: "Oregon",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   PA: {
-    name: "New Jersey",
+    fillKey: "defaultFill",
+    stateName: "Pennsylvania",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   RI: {
-    name: "New Jersey",
+    fillKey: "defaultFill",
+    stateName: "Rhode Island",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   SC: {
-    name: "New Jersey",
+    fillKey: "defaultFill",
+    stateName: "South Carolina",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   SD: {
-    name: "New Jersey",
+    fillKey: "defaultFill",
+    stateName: "South Dakota",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   TN: {
-    name: "New Jersey",
+    fillKey: "defaultFill",
+    stateName: "Tennessee",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   TX: {
-    name: "New Jersey",
+    fillKey: "defaultFill",
+    stateName: "Texas",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   UT: {
-    name: "New Jersey",
+    fillKey: "defaultFill",
+    stateName: "Utah",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   WI: {
-    name: "New Jersey",
+    fillKey: "defaultFill",
+    stateName: "Wisconsin",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   VA: {
-    name: "New Jersey",
+    fillKey: "defaultFill",
+    stateName: "Virginia",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   VT: {
-    name: "New Jersey",
+    fillKey: "defaultFill",
+    stateName: "Vermont",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   WA: {
-    name: "New Jersey",
+    fillKey: "defaultFill",
+    stateName: "Washington",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   WV: {
-    name: "New Jersey",
+    fillKey: "defaultFill",
+    stateName: "West Virginia",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   WY: {
-    name: "New Jersey",
+    fillKey: "defaultFill",
+    stateName: "Wyoming",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   CA: {
-    name: "New Jersey",
+    fillKey: "defaultFill",
+    stateName: "California",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   CT: {
-    name: "New Jersey",
+    fillKey: "defaultFill",
+    stateName: "Connecticut",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   AK: {
-    name: "New Jersey",
+    fillKey: "defaultFill",
+    stateName: "Alaska",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   AR: {
-    name: "New Jersey",
+    fillKey: "defaultFill",
+    stateName: "Arizona",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   AL: {
-    name: "New Jersey",
+    fillKey: "defaultFill",
+    stateName: "Alabama",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   }
 };
-
-module.exports = states;

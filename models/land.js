@@ -14,7 +14,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     // eslint-disable-next-line camelcase
     resource_cost: {
-      type: DataTypes.INT,
+      type: DataTypes.INTEGER,
       allowNull: false
     },
     // eslint-disable-next-line camelcase
@@ -24,7 +24,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     // eslint-disable-next-line camelcase
     owned_by: {
-      type: DataTypes.INT,
+      type: DataTypes.INTEGER,
       allowNull: true
     }
   });
