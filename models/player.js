@@ -3,7 +3,7 @@
 // 3. Resource Cost - INT
 // 4. Owned by - INT ID
 
-module.exports = function (sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
   const Player = sequelize.define("Player", {
     name: {
       type: DataTypes.STRING,
@@ -14,11 +14,11 @@ module.exports = function (sequelize, DataTypes) {
     },
     // eslint-disable-next-line camelcase
     resource_inventory: {
-      type: DataTypes.INT,
+      type: DataTypes.INTEGER,
       allowNull: false
     },
     highscore: {
-      type: DataTypes.INT
+      type: DataTypes.INTEGER
     }
   });
 

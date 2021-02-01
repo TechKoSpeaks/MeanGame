@@ -10,7 +10,7 @@ function createMap() {
   map = new Datamap({
     element: document.getElementById("container"),
     scope: "usa",
-    done: function (datamap) {
+    done: function(datamap) {
       console.log(datamap);
       datamap.svg.selectAll(".datamaps-subunit").on("click", geography => {
         changeOwnership(geography);
@@ -20,7 +20,7 @@ function createMap() {
     },
     geographyConfig: {
       highlightBorderColor: "#bada55",
-      popupTemplate: function (land, data) {
+      popupTemplate: function(land, data) {
         const i = `<div class="hoverinfo">${land.properties.name}
         Resource Cost: ${data.resourceCost} `;
         return i;
@@ -38,8 +38,6 @@ function createMap() {
   });
 }
 
-
-
 function changeOwnership(geography) {
   const stateTarget = geography.id;
   if (States[stateTarget].isOwned === false) {
@@ -50,7 +48,6 @@ function changeOwnership(geography) {
 //   USA: {fillKey: 'LOW'},
 //   CAN: '#0fa0fa'
 // });
-
 
 function setLandColor(geography) {
   const stateTarget = geography.id;
@@ -69,8 +66,5 @@ function setLandColor(geography) {
   //   { [stateTarget]: { fillKey: States[stateTarget].fillKey } },
   //   { reset: false }
   // );
-  map.updateChoropleth(
-    States,
-    { reset: true }
-  );
+  map.updateChoropleth(States, { reset: true });
 }
