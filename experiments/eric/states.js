@@ -1,151 +1,141 @@
-// NJ: {
-//   fillKey: "defaultFill",
-//   id: 3,
-//   name: "New Jersey",
-//   resourceCost: 15,
-//   ownedBy: "Rockefeller",
-//   isOwned: true
-// },
-
-// const States = require("states.js");
 /* eslint-disable no-unused-vars */
-const States = {
+const states = {
   AZ: {
     fillKey: setLandColor(this.isOwned, this.ownedBy),
-    name: "Arizona",
+    name: "New Jersey",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   CO: {
     fillKey: "broughtByOpponent",
-    name: "Colorado",
+    name: "New Jersey",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   DE: {
     fillKey: "defaultFill",
-    name: "Delaware",
+    name: "New Jersey",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   FL: {
     fillKey: "defaultFill",
-    name: "Florida",
+    name: "New Jersey",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   GA: {
     fillKey: "defaultFill",
-    name: "Georgia",
+    name: "New Jersey",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   HI: {
     fillKey: "defaultFill",
-    name: "Hawaii",
+    name: "New Jersey",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   ID: {
     fillKey: "defaultFill",
-    name: "Idaho",
+    name: "New Jersey",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   IL: {
     fillKey: "defaultFill",
-    name: "Illinois",
+    name: "New Jersey",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   IN: {
     fillKey: "defaultFill",
-    name: "Indiana",
+    name: "New Jersey",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   IA: {
     fillKey: "defaultFill",
-    name: "Iowa",
+    name: "New Jersey",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   KS: {
     fillKey: "defaultFill",
-    name: "Kansas",
+    name: "New Jersey",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   KY: {
     fillKey: "defaultFill",
-    name: "Kentucky",
+    name: "New Jersey",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   LA: {
     fillKey: "defaultFill",
-    name: "Louisiana",
+    name: "New Jersey",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   MD: {
     fillKey: "defaultFill",
-    name: "Maryland",
+    name: "New Jersey",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   ME: {
     fillKey: "defaultFill",
-    name: "Maine",
+    name: "New Jersey",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   MA: {
     fillKey: "defaultFill",
-    name: "Massachusetts",
+    name: "New Jersey",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   MN: {
     fillKey: "defaultFill",
-    name: "Minnesota",
+    name: "New Jersey",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   MI: {
     fillKey: "defaultFill",
-    name: "Michigan",
+    name: "New Jersey",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   MS: {
     fillKey: "defaultFill",
-    name: "Mississippi",
+    name: "New Jersey",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   MO: {
     fillKey: "defaultFill",
-    name: "Missouri",
+    name: "New Jersey",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
@@ -335,52 +325,4 @@ const States = {
   }
 };
 
-const map = new Datamap({
-  element: document.getElementById("container"),
-  scope: "usa",
-  done: function(datamap) {
-    datamap.svg.selectAll(".datamaps-subunit").on("click", geography => {
-      alert(geography.properties.name);
-    });
-  },
-  geographyConfig: {
-    highlightBorderColor: "#bada55",
-    popupTemplate: function(land, data) {
-      const i =
-        // `<div class="hoverinfo">${data.id}. ${data.name}
-        // Owned by: ${data.ownedBy}
-        `<div class="hoverinfo">${land.properties.name}
-      Resource Cost: ${data.resourceCost} `;
-      return i;
-    },
-    popupOnHover: true,
-    highlightBorderWidth: 3
-  },
-  fills: {
-    // notBrought: "#D3D3D3",
-    broughtByPlayer: "#228B22",
-    broughtByOpponent: "#B22222",
-    //Grey
-    defaultFill: "#D3D3D3"
-  },
-  data: States
-});
-
-function setLandColor(isOwned, ownedBy) {
-  // if (isOwned) {
-  //   if (ownedBy === "Rockefeller") {
-  //     return "broughtByPlayer";
-  //   }
-  //   return "broughtByOpponent";
-  // }
-  // return "defaultFill";
-}
-
-function changeOwnership(geography) {
-  const stateTarget = geography.properties.name;
-  if (States.stateTarget.isOwned === false) {
-    States.stateTarget.isOwned = true;
-  } else if (States.stateTarget.isOwned === true) {
-    States.stateTarget.isOwned = false;
-  }
-}
+module.exports = states;
