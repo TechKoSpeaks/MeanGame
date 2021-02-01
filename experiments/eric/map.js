@@ -1,5 +1,3 @@
-
-
 // NJ: {
 //   fillKey: "defaultFill",
 //   id: 3,
@@ -11,7 +9,7 @@
 
 // const States = require("states.js");
 /* eslint-disable no-unused-vars */
-var States = {
+const States = {
   AZ: {
     fillKey: setLandColor(this.isOwned, this.ownedBy),
     name: "Arizona",
@@ -340,14 +338,14 @@ var States = {
 const map = new Datamap({
   element: document.getElementById("container"),
   scope: "usa",
-  done: function (datamap) {
-    datamap.svg.selectAll('.datamaps-subunit').on('click', function (geography) {
+  done: function(datamap) {
+    datamap.svg.selectAll(".datamaps-subunit").on("click", geography => {
       alert(geography.properties.name);
     });
   },
   geographyConfig: {
     highlightBorderColor: "#bada55",
-    popupTemplate: function (land, data) {
+    popupTemplate: function(land, data) {
       const i =
         // `<div class="hoverinfo">${data.id}. ${data.name}
         // Owned by: ${data.ownedBy}
@@ -369,25 +367,20 @@ const map = new Datamap({
 });
 
 function setLandColor(isOwned, ownedBy) {
-
   // if (isOwned) {
   //   if (ownedBy === "Rockefeller") {
   //     return "broughtByPlayer";
   //   }
-
   //   return "broughtByOpponent";
   // }
-
   // return "defaultFill";
 }
 
-
 function changeOwnership(geography) {
-  let stateTarget = geography.properties.name;
+  const stateTarget = geography.properties.name;
   if (States.stateTarget.isOwned === false) {
     States.stateTarget.isOwned = true;
-  }
-  else if (States.stateTarget.isOwned === true) {
+  } else if (States.stateTarget.isOwned === true) {
     States.stateTarget.isOwned = false;
-  };
+  }
 }
