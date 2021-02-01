@@ -1,4 +1,42 @@
-form.signup,
-form.login {
-  margin-top: 50px;
+.display-4 {
+  text-align: center;
+  /* margin-bottom: auto; */
+}
+
+body{ background-color: rgb(4, 104, 4);}
+
+.breadcrumb {
+  text-align: center;
+}
+
+.rightColumn {
+  margin-right: 20px;
+  padding: 60px;
+  clear: both;
+  float: right;
+  width: 70%;
+  height: 100%;
+  /* font-family: ; */
+  background-color: #eff4f7;
+}
+
+.resources {
+  padding: 40px;
+  clear: both;
+  width: 20%;
+  height: 100%;
+  /* float: left; */
+  display: inline-block;
+  margin-left: 20px;
+  background-color: #eff4f7;
+}
+
+footer {
+  padding: 30px;
+  clear: both;
+  text-align: center;
+}
+
+.footer h2 {
+  font-size: 20px;
 }
