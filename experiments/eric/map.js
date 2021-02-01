@@ -1,14 +1,3 @@
-// NJ: {
-//   fillKey: "defaultFill",
-//   id: 3,
-//   name: "New Jersey",
-//   resourceCost: 15,
-//   ownedBy: "Rockefeller",
-//   isOwned: true
-// },
-
-// const States = require("states.js");
-/* eslint-disable no-unused-vars */
 const States = {
   AZ: {
     fillKey: "defaultFill",
@@ -151,30 +140,35 @@ const States = {
     isOwned: true
   },
   MT: {
+    fillKey: "defaultFill",
     stateName: "Montana",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   NC: {
+    fillKey: "defaultFill",
     stateName: "North Carolina",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   NE: {
+    fillKey: "defaultFill",
     stateName: "Nebraska",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   NV: {
+    fillKey: "defaultFill",
     stateName: "Nevada",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   NH: {
+    fillKey: "defaultFill",
     stateName: "New Hampshire",
     resourceCost: 15,
     ownedBy: "Rockefeller",
@@ -202,132 +196,154 @@ const States = {
     isOwned: true
   },
   NM: {
+    fillKey: "defaultFill",
     stateName: "New Mexico",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   OH: {
+    fillKey: "defaultFill",
     stateName: "Ohio",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   OK: {
+    fillKey: "defaultFill",
     stateName: "Oklahoma",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   OR: {
+    fillKey: "defaultFill",
     stateName: "Oregon",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   PA: {
+    fillKey: "defaultFill",
     stateName: "Pennsylvania",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   RI: {
+    fillKey: "defaultFill",
     stateName: "Rhode Island",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   SC: {
+    fillKey: "defaultFill",
     stateName: "South Carolina",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   SD: {
+    fillKey: "defaultFill",
     stateName: "South Dakota",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   TN: {
+    fillKey: "defaultFill",
     stateName: "Tennessee",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   TX: {
+    fillKey: "defaultFill",
     stateName: "Texas",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   UT: {
+    fillKey: "defaultFill",
     stateName: "Utah",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   WI: {
+    fillKey: "defaultFill",
     stateName: "Wisconsin",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   VA: {
+    fillKey: "defaultFill",
     stateName: "Virginia",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   VT: {
+    fillKey: "defaultFill",
     stateName: "Vermont",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   WA: {
+    fillKey: "defaultFill",
     stateName: "Washington",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   WV: {
+    fillKey: "defaultFill",
     stateName: "West Virginia",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   WY: {
+    fillKey: "defaultFill",
     stateName: "Wyoming",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   CA: {
+    fillKey: "defaultFill",
     stateName: "California",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   CT: {
+    fillKey: "defaultFill",
     stateName: "Connecticut",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   AK: {
+    fillKey: "defaultFill",
     stateName: "Alaska",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   AR: {
+    fillKey: "defaultFill",
     stateName: "Arizona",
     resourceCost: 15,
     ownedBy: "Rockefeller",
     isOwned: true
   },
   AL: {
+    fillKey: "defaultFill",
     stateName: "Alabama",
     resourceCost: 15,
     ownedBy: "Rockefeller",
@@ -338,7 +354,7 @@ const States = {
 const map = new Datamap({
   element: document.getElementById("container"),
   scope: "usa",
-  done: function (datamap) {
+  done: function(datamap) {
     datamap.svg.selectAll(".datamaps-subunit").on("click", geography => {
       changeOwnership(geography);
       setLandColor(geography);
@@ -346,11 +362,8 @@ const map = new Datamap({
   },
   geographyConfig: {
     highlightBorderColor: "#bada55",
-    popupTemplate: function (land, data) {
-      const i =
-        // `<div class="hoverinfo">${data.id}. ${data.name}
-        // Owned by: ${data.ownedBy}
-        `<div class="hoverinfo">${land.properties.name}
+    popupTemplate: function(land, data) {
+      const i = `<div class="hoverinfo">${land.properties.name}
       Resource Cost: ${data.resourceCost} `;
       return i;
     },
@@ -376,29 +389,18 @@ function changeOwnership(geography) {
   }
 }
 
-// map.updateChoropleth({
-//   USA: {fillKey: 'LOW'},
-//   CAN: '#0fa0fa'
-// });
-
 function setLandColor(geography) {
   const stateTarget = geography.id;
-  let color;
   if (States[stateTarget].isOwned === true) {
     if (States[stateTarget].ownedBy === "Rockefeller") {
       States[stateTarget].fillKey = "broughtByPlayer";
-      color = "broughtByPlayer";
+    } else {
+      States[stateTarget].fillKey = "broughtByOpponent";
     }
-    States[stateTarget].fillKey = "broughtByOpponent";
-    color = "broughtByOpponent";
   } else {
     States[stateTarget].fillKey = "defaultFill";
-    color = "defaultFill";
   }
-  let i = {};
-  i[stateTarget] = color;
-  console.log(i);
+
   console.log(States[stateTarget].fillKey);
-  map.updateChoropleth(i);
-  map.updateChoropleth(States);
+  map.updateChoropleth(States, { reset: false });
 }
