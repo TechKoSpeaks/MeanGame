@@ -2,22 +2,19 @@
 const db = require("../models");
 
 module.exports = function(app) {
-  // Add a new land
-  app.post("/api/player", (req, res) => {
+  app.post("/api/players", (req, res) => {
     db.Player.create(req.body).then(dbPlayers => {
       res.json(dbPlayers);
     });
   });
 
-  // Get all lands
-  app.get("/api/", (req, res) => {
+  app.get("/api/players", (req, res) => {
     db.Player.findAll({}).then(dbPlayers => {
       res.json(dbPlayers);
     });
   });
 
-  // Route for updating land data
-  app.put("/api/player/:id", (req, res) => {
+  app.put("/api/players/:id", (req, res) => {
     db.Player.update(req.body, {
       where: {
         id: req.params.id
