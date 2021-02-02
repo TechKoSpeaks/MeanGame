@@ -3,19 +3,20 @@ const broughtByPlayer = "broughtByPlayer";
 const broughtByOpponent = "broughtByOpponent";
 
 let map;
+// eslint-disable-next-line no-unused-vars
 const playerResourceInventory = 0;
 createMap();
 updateLandArray();
 
 function updateLandArray() {
-  $.get("/api/lands", (data) => {
+  $.get("/api/lands", data => {
     data.forEach(land => {
       States[land.code] = land;
       console.log(land.code);
       console.log(States[land.code]);
-    })
+    });
     console.log(data);
-  })
+  });
 }
 
 function createMap() {
@@ -23,7 +24,7 @@ function createMap() {
   map = new Datamap({
     element: document.getElementById("mapDiagram"),
     scope: "usa",
-    done: function (datamap) {
+    done: function(datamap) {
       datamap.svg.selectAll(".datamaps-subunit").on("click", geography => {
         //Do nothing if land is already owned
         if (geography.is_owned) {
@@ -37,7 +38,7 @@ function createMap() {
     },
     geographyConfig: {
       highlightBorderColor: "#bada55",
-      popupTemplate: function (land, data) {
+      popupTemplate: function(land, data) {
         const i = `<div class="hoverinfo">${land.properties.name}
         Resource Cost: ${data.resource_cost} `;
         return i;
@@ -54,8 +55,9 @@ function createMap() {
   });
 }
 
-//see land-api-routes. 
+//see land-api-routes.
 //In there, will check on server side if user has enough resources to purchase land
+// eslint-disable-next-line no-unused-vars
 function purchaseLand(geography, callback) {
   $.ajax({
     url: `/api/lands/${geography.id}/purchase`,
@@ -97,5 +99,3 @@ function setLandColor(geography) {
   }
   map.updateChoropleth(States, { reset: true });
 }
-
-
