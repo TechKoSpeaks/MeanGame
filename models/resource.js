@@ -8,12 +8,8 @@ module.exports = function(sequelize, DataTypes) {
     inventory: {
       type: DataTypes.INTEGER,
       defaultValue: 0
-    },
-    // eslint-disable-next-line camelcase
-    resource_limit: {
-      type: DataTypes.INTEGER,
-      defaultValue: 100
     }
+    // eslint-disable-next-line camelcase
   });
   return Resource;
 };

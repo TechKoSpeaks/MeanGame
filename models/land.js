@@ -12,6 +12,10 @@ module.exports = function(sequelize, DataTypes) {
         len: [1]
       }
     },
+    code: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     // eslint-disable-next-line camelcase
     resource_cost: {
       type: DataTypes.INTEGER,

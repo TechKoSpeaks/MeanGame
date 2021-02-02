@@ -206,7 +206,7 @@ function sendResource() {
 
 // On focus for typing input in the input area box //
  $("#typingInput").on("focus", function() {
-    console.log("Hello!");
+    // console.log("Hello!");
     if (!isGameRunning) {
        getQuote();
         // quote request //
@@ -227,7 +227,7 @@ function getQuote() {
         for (let j = 0; j < quoteLimit; j++) {
             quotes_array[j] = data[j];
         }
-        console.log(data);
+        // console.log(data);
 
     })
 };

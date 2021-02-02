@@ -3,6 +3,7 @@ const broughtByPlayer = "broughtByPlayer";
 const broughtByOpponent = "broughtByOpponent";
 
 let map;
+const playerResourceInventory = 0;
 createMap();
 
 function createMap() {
@@ -13,6 +14,7 @@ function createMap() {
     done: function(datamap) {
       datamap.svg.selectAll(".datamaps-subunit").on("click", geography => {
         changeOwnership(geography);
+        // $.put(`/api/lands/${geography.id}/purchase`);
         setLandColor(geography);
         createMap();
       });
@@ -36,22 +38,33 @@ function createMap() {
   });
 }
 
+// when player clicks a state
+// if state is owned
+// do nothing
+// if state is not owned and playerResource >= state resource cost - send request. API-purchase-route
+// update state ownshership to owned
+// new player resource is equal to player resource - state resource cost
+// update player resource to new resource amount
+// render map with updated state data
+
 function changeOwnership(geography) {
   const stateTarget = geography.id;
-  console.log(getResourceInventory() >= States[stateTarget].resource_cost);
-  console.log(States[stateTarget].resource_cost);
+  // playerResourceInventory = getResourceInventory();
+  // console.log(playerResourceInventory);
+  // console.log(playerResourceInventory >= States[stateTarget].resource_cost);
   if (
-    States[stateTarget].isOwned === false &&
-    getResourceInventory() >= States[stateTarget].resource_cost
+    States[stateTarget].is_owned === false &&
+    playerResourceInventory >= States[stateTarget].resource_cost
   ) {
-    States[stateTarget].isOwned = true;
+    // eslint-disable-next-line camelcase
+    States[stateTarget].is_owned = true;
   }
-  getResourceInventory();
+  // getResourceInventory();
 }
 
 function setLandColor(geography) {
   const stateTarget = geography.id;
-  if (States[stateTarget].isOwned) {
+  if (States[stateTarget].is_owned) {
     States[stateTarget].fillKey = broughtByPlayer;
   } else {
     States[stateTarget].fillKey = "defaultFill";
@@ -59,8 +72,8 @@ function setLandColor(geography) {
   map.updateChoropleth(States, { reset: true });
 }
 
-function getResourceInventory() {
-  $.get("/api/resources/1", data => {
-    return data.inventory;
-  });
-}
+// function getResourceInventory(callback) {
+//   $.get("/api/resources/1", data => {
+//     return data.inventory;
+//   });
+// }
