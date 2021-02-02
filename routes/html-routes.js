@@ -1,6 +1,14 @@
+/* eslint-disable no-unused-vars */
+const db = require("../models/");
+
 module.exports = function(app) {
   app.get("/", (req, res) => {
     // If the user already has an account send them to the members page
+    db.Land.findAll().then(data => {
+      const landList = {
+        lands: data
+      };
+    });
     res.render("homepage");
   });
 
