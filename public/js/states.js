@@ -1,252 +1,302 @@
 const States = {
   AZ: {
-    stateName: "Arizona",
+    code: "AZ",
+    name: "Arizona",
     resource_cost: 15,
-    isOwned: true
+    is_owned: false
   },
   CO: {
-    stateName: "Colorado",
+    code: "CO",
+    name: "Colorado",
     resource_cost: 15,
-    isOwned: true
+    is_owned: false
   },
   DE: {
-    stateName: "Delaware",
+    code: "DE",
+    name: "Delaware",
     resource_cost: 15,
-    isOwned: true
+    is_owned: false
   },
   FL: {
-    stateName: "Florida",
+    code: "FL",
+    name: "Florida",
     resource_cost: 15,
-    isOwned: true
+    is_owned: false
   },
   GA: {
-    stateName: "Georgia",
+    code: "GA",
+    name: "Georgia",
     resource_cost: 15,
-    isOwned: true
+    is_owned: false
   },
   HI: {
-    stateName: "Hawaii",
+    code: "HI",
+    name: "Hawaii",
     resource_cost: 15,
-    isOwned: true
+    is_owned: false
   },
   ID: {
-    stateName: "Idaho",
+    code: "ID",
+    name: "Idaho",
     resource_cost: 15,
-    isOwned: true
+    is_owned: true
   },
   IL: {
-    stateName: "Illinois",
+    code: "IL",
+    name: "Illinois",
     resource_cost: 15,
-    isOwned: true
+    is_owned: false
   },
   IN: {
-    stateName: "Indiana",
+    code: "IN",
+    name: "Indiana",
     resource_cost: 15,
-    isOwned: true
+    is_owned: false
   },
   IA: {
-    stateName: "Iowa",
+    code: "IA",
+    name: "Iowa",
     resource_cost: 15,
-    isOwned: true
+    is_owned: false
   },
   KS: {
-    stateName: "Kansas",
+    code: "KS",
+    name: "Kansas",
     resource_cost: 15,
-    isOwned: true
+    is_owned: false
   },
   KY: {
-    stateName: "Kentucky",
+    code: "KY",
+    name: "Kentucky",
     resource_cost: 15,
-    isOwned: true
+    is_owned: false
   },
   LA: {
-    stateName: "Louisiana",
+    code: "LA",
+    name: "Louisanna",
     resource_cost: 15,
-    isOwned: true
+    is_owned: false
   },
   MD: {
-    stateName: "Maryland",
+    code: "MD",
+    name: "Maryland",
     resource_cost: 15,
-    isOwned: true
+    is_owned: false
   },
   ME: {
-    stateName: "Maine",
+    code: "ME",
+    name: "Maine",
     resource_cost: 15,
-    isOwned: true
+    is_owned: false
   },
   MA: {
-    stateName: "Massachusetts",
+    code: "MA",
+    name: "Massachusetts",
     resource_cost: 15,
-    isOwned: true
+    is_owned: false
   },
   MN: {
-    stateName: "Minnesota",
+    code: "MN",
+    name: "Minnesota",
     resource_cost: 15,
-    isOwned: true
+    is_owned: false
   },
   MI: {
-    stateName: "Michigan",
+    code: "MI",
+    name: "Michigan",
     resource_cost: 15,
-    isOwned: true
+    is_owned: false
   },
   MS: {
-    stateName: "Mississippi",
+    code: "MS",
+    name: "Mississippi",
     resource_cost: 15,
-    isOwned: true
+    is_owned: false
   },
   MO: {
-    stateName: "Missouri",
+    code: "MO",
+    name: "Missouri",
     resource_cost: 15,
-    isOwned: true
+    is_owned: false
   },
   MT: {
-    stateName: "Montana",
-    resource_cost: 1000,
-    isOwned: true
+    code: "MT",
+    name: "Montana",
+    resource_cost: 15,
+    is_owned: true
   },
   NC: {
-    stateName: "North Carolina",
+    code: "NC",
+    name: "North Carolina",
     resource_cost: 15,
-    isOwned: true
+    is_owned: false
   },
   NE: {
-    stateName: "Nebraska",
+    code: "NE",
+    name: "Nebraska",
     resource_cost: 15,
-    isOwned: true
+    is_owned: false
   },
   NV: {
-    stateName: "Nevada",
+    code: "NV",
+    name: "Nevada",
     resource_cost: 15,
-    isOwned: true
+    is_owned: false
   },
   NH: {
-    stateName: "New Hampshire",
+    code: "NH",
+    name: "New Hampshire",
     resource_cost: 15,
-    isOwned: true
+    is_owned: false
   },
   NJ: {
-    stateName: "New Jersey",
+    code: "NJ",
+    name: "New Jersey",
     resource_cost: 15,
-    isOwned: true
+    is_owned: false
   },
   NY: {
-    stateName: "New York",
-    resource_cost: 10,
-    isOwned: true
+    code: "NY",
+    name: "New York",
+    resource_cost: 15,
+    is_owned: false
   },
   ND: {
-    stateName: "North Dakota",
-    resource_cost: 20,
-    isOwned: true
+    code: "ND",
+    name: "North Dakota",
+    resource_cost: 15,
+    is_owned: false
   },
   NM: {
-    stateName: "New Mexico",
+    code: "NM",
+    name: "New Mexico",
     resource_cost: 15,
-    isOwned: true
+    is_owned: false
   },
   OH: {
-    stateName: "Ohio",
+    code: "OH",
+    name: "Ohio",
     resource_cost: 15,
-    isOwned: true
+    is_owned: false
   },
   OK: {
-    stateName: "Oklahoma",
+    code: "OK",
+    name: "Oklahoma",
     resource_cost: 15,
-    isOwned: true
+    is_owned: false
   },
   OR: {
-    stateName: "Oregon",
+    code: "OR",
+    name: "Oregon",
     resource_cost: 15,
-    isOwned: true
+    is_owned: false
   },
   PA: {
-    stateName: "Pennsylvania",
+    code: "PA",
+    name: "Pennsylvania",
     resource_cost: 15,
-    isOwned: true
+    is_owned: false
   },
   RI: {
-    stateName: "Rhode Island",
+    code: "RI",
+    name: "Rhode Island",
     resource_cost: 15,
-    isOwned: true
+    is_owned: false
   },
   SC: {
-    stateName: "South Carolina",
+    code: "SC",
+    name: "South Carolina",
     resource_cost: 15,
-    isOwned: true
+    is_owned: false
   },
   SD: {
-    stateName: "South Dakota",
+    code: "SD",
+    name: "South Dakota",
     resource_cost: 15,
-    isOwned: true
+    is_owned: false
   },
   TN: {
-    stateName: "Tennessee",
+    code: "TN",
+    name: "Tennessee",
     resource_cost: 15,
-    isOwned: true
+    is_owned: false
   },
   TX: {
-    stateName: "Texas",
+    code: "TX",
+    name: "Texas",
     resource_cost: 15,
-    isOwned: true
+    is_owned: false
   },
   UT: {
-    stateName: "Utah",
+    code: "UT",
+    name: "Utah",
     resource_cost: 15,
-    isOwned: true
+    is_owned: false
   },
   WI: {
-    stateName: "Wisconsin",
+    code: "WI",
+    name: "Wisconsin",
     resource_cost: 15,
-    isOwned: true
+    is_owned: false
   },
   VA: {
-    stateName: "Virginia",
+    code: "VA",
+    name: "Virginia",
     resource_cost: 15,
-    isOwned: true
+    is_owned: false
   },
   VT: {
-    stateName: "Vermont",
+    code: "VT",
+    name: "Vermont",
     resource_cost: 15,
-    isOwned: true
+    is_owned: false
   },
   WA: {
-    stateName: "Washington",
+    code: "WA",
+    name: "Washington",
     resource_cost: 15,
-    isOwned: true
+    is_owned: true
   },
   WV: {
-    stateName: "West Virginia",
+    code: "WV",
+    name: "West Virginia",
     resource_cost: 15,
-    isOwned: true
+    is_owned: false
   },
   WY: {
-    stateName: "Wyoming",
+    code: "WY",
+    name: "Wyoming",
     resource_cost: 15,
-    isOwned: true
+    is_owned: false
   },
   CA: {
-    stateName: "California",
+    code: "CA",
+    name: "California",
     resource_cost: 15,
-    isOwned: true
+    is_owned: false
   },
   CT: {
-    stateName: "Connecticut",
+    code: "CT",
+    name: "Connecticut",
     resource_cost: 15,
-    isOwned: true
+    is_owned: false
   },
   AK: {
-    stateName: "Alaska",
+    code: "AK",
+    name: "Alaska",
     resource_cost: 15,
-    isOwned: true
+    is_owned: false
   },
   AR: {
-    stateName: "Arizona",
+    code: "AR",
+    name: "Arizona",
     resource_cost: 15,
-    isOwned: true
+    is_owned: false
   },
   AL: {
-    stateName: "Alabama",
+    code: "AL",
+    name: "Alabama",
     resource_cost: 15,
-    isOwned: true
+    is_owned: false
   }
 };
