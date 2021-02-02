@@ -10,7 +10,7 @@ function createMap() {
   map = new Datamap({
     element: document.getElementById("mapDiagram"),
     scope: "usa",
-    done: function (datamap) {
+    done: function(datamap) {
       console.log(datamap);
       datamap.svg.selectAll(".datamaps-subunit").on("click", geography => {
         changeOwnership(geography);
@@ -20,7 +20,7 @@ function createMap() {
     },
     geographyConfig: {
       highlightBorderColor: "#bada55",
-      popupTemplate: function (land, data) {
+      popupTemplate: function(land, data) {
         const i = `<div class="hoverinfo">${land.properties.name}
         Resource Cost: ${data.resourceCost} `;
         return i;
