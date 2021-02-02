@@ -36,11 +36,11 @@ module.exports = function(app) {
   // update player resource to new resource amount
   // render map with updated state data
 
-  app.put("/api/lands/:id/purchase", (req, res) => {
+  app.put("/api/lands/:code/purchase", (req, res) => {
     Promise.all([
       db.Land.findOne({
         where: {
-          code: req.params.id
+          code: req.params.code
         }
       }),
       db.Resource.findOne({
@@ -76,5 +76,7 @@ module.exports = function(app) {
         console.log(err);
         res.status(400).end();
       });
+
+    console.log("it works");
   });
 };

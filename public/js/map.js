@@ -3,8 +3,21 @@ const broughtByPlayer = "broughtByPlayer";
 const broughtByOpponent = "broughtByOpponent";
 
 let map;
+// eslint-disable-next-line no-unused-vars
 const playerResourceInventory = 0;
 createMap();
+updateLandArray();
+
+function updateLandArray() {
+  $.get("/api/lands", data => {
+    data.forEach(land => {
+      States[land.code] = land;
+      console.log(land.code);
+      console.log(States[land.code]);
+    });
+    console.log(data);
+  });
+}
 
 function createMap() {
   $("#mapDiagram").empty();
@@ -13,8 +26,12 @@ function createMap() {
     scope: "usa",
     done: function(datamap) {
       datamap.svg.selectAll(".datamaps-subunit").on("click", geography => {
+        //Do nothing if land is already owned
+        if (geography.is_owned) {
+          return;
+        }
         changeOwnership(geography);
-        // $.put(`/api/lands/${geography.id}/purchase`);
+        // purchaseLand(geography);
         setLandColor(geography);
         createMap();
       });
@@ -38,6 +55,23 @@ function createMap() {
   });
 }
 
+//see land-api-routes.
+//In there, will check on server side if user has enough resources to purchase land
+// eslint-disable-next-line no-unused-vars
+function purchaseLand(geography, callback) {
+  $.ajax({
+    url: `/api/lands/${geography.id}/purchase`,
+    type: "PUT"
+  })
+    .then(data => {
+      console.log(data);
+      callback(data);
+    })
+    .fail(error => {
+      console.log(error);
+    });
+}
+
 // when player clicks a state
 // if state is owned
 // do nothing
@@ -49,13 +83,7 @@ function createMap() {
 
 function changeOwnership(geography) {
   const stateTarget = geography.id;
-  // playerResourceInventory = getResourceInventory();
-  // console.log(playerResourceInventory);
-  // console.log(playerResourceInventory >= States[stateTarget].resource_cost);
-  if (
-    States[stateTarget].is_owned === false &&
-    playerResourceInventory >= States[stateTarget].resource_cost
-  ) {
+  if (States[stateTarget].is_owned === false) {
     // eslint-disable-next-line camelcase
     States[stateTarget].is_owned = true;
   }
@@ -71,9 +99,3 @@ function setLandColor(geography) {
   }
   map.updateChoropleth(States, { reset: true });
 }
-
-// function getResourceInventory(callback) {
-//   $.get("/api/resources/1", data => {
-//     return data.inventory;
-//   });
-// }
