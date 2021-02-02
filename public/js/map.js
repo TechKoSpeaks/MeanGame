@@ -6,9 +6,9 @@ let map;
 createMap();
 
 function createMap() {
-  $("#container").empty();
+  $("#mapDiagram").empty();
   map = new Datamap({
-    element: document.getElementById("container"),
+    element: document.getElementById("mapDiagram"),
     scope: "usa",
     done: function(datamap) {
       console.log(datamap);
