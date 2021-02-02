@@ -1,6 +1,6 @@
 // settings
 
-var physics_accuracy = 3,
+let physics_accuracy = 3,
   mouse_influence = 20,
   mouse_cut = 5,
   gravity = 1200,
@@ -20,7 +20,7 @@ window.requestAnimFrame =
     window.setTimeout(callback, 1000 / 60);
   };
 
-var canvas,
+let canvas,
   ctx,
   cloth,
   boundsx,
@@ -31,10 +31,10 @@ var canvas,
     x: 0,
     y: 0,
     px: 0,
-    py: 0,
+    py: 0
   };
 
-var Point = function(x, y) {
+const Point = function(x, y) {
   this.x = x;
   this.y = y;
   this.px = x;
@@ -49,7 +49,7 @@ var Point = function(x, y) {
 
 Point.prototype.update = function(delta) {
   if (mouse.down) {
-    var diff_x = this.x - mouse.x,
+    let diff_x = this.x - mouse.x,
       diff_y = this.y - mouse.y,
       dist = Math.sqrt(diff_x * diff_x + diff_y * diff_y);
 
@@ -58,7 +58,9 @@ Point.prototype.update = function(delta) {
         this.px = this.x - (mouse.x - mouse.px) * 1.8;
         this.py = this.y - (mouse.y - mouse.py) * 1.8;
       }
-    } else if (dist < mouse_cut) this.constraints = [];
+    } else if (dist < mouse_cut) {
+      this.constraints = [];
+    }
   }
 
   this.add_force(0, gravity);
@@ -77,10 +79,14 @@ Point.prototype.update = function(delta) {
 };
 
 Point.prototype.draw = function() {
-  if (!this.constraints.length) return;
+  if (!this.constraints.length) {
+    return;
+  }
 
-  var i = this.constraints.length;
-  while (i--) this.constraints[i].draw();
+  let i = this.constraints.length;
+  while (i--) {
+    this.constraints[i].draw();
+  }
 };
 
 Point.prototype.resolve_constraints = function() {
@@ -90,12 +96,14 @@ Point.prototype.resolve_constraints = function() {
     return;
   }
 
-  var i = this.constraints.length;
-  while (i--) this.constraints[i].resolve();
+  let i = this.constraints.length;
+  while (i--) {
+    this.constraints[i].resolve();
+  }
 
   this.x > boundsx
     ? (this.x = 2 * boundsx - this.x)
-    : 1 > this.x && (this.x = 2 - this.x);
+    : this.x < 1 && (this.x = 2 - this.x);
   this.y < 1
     ? (this.y = 2 - this.y)
     : this.y > boundsy && (this.y = 2 * boundsy - this.y);
@@ -113,7 +121,7 @@ Point.prototype.add_force = function(x, y) {
   this.vx += x;
   this.vy += y;
 
-  var round = 400;
+  const round = 400;
   this.vx = ~~(this.vx * round) / round;
   this.vy = ~~(this.vy * round) / round;
 };
@@ -130,15 +138,17 @@ var Constraint = function(p1, p2) {
 };
 
 Constraint.prototype.resolve = function() {
-  var diff_x = this.p1.x - this.p2.x,
+  let diff_x = this.p1.x - this.p2.x,
     diff_y = this.p1.y - this.p2.y,
     dist = Math.sqrt(diff_x * diff_x + diff_y * diff_y),
     diff = (this.length - dist) / dist;
 
-  if (dist > tear_distance) this.p1.remove_constraint(this);
+  if (dist > tear_distance) {
+    this.p1.remove_constraint(this);
+  }
 
-  var px = diff_x * diff * 0.5;
-  var py = diff_y * diff * 0.5;
+  const px = diff_x * diff * 0.5;
+  const py = diff_y * diff * 0.5;
 
   this.p1.x += px;
   this.p1.y += py;
@@ -151,14 +161,14 @@ Constraint.prototype.draw = function() {
   ctx.lineTo(this.p2.x, this.p2.y);
 };
 
-var Cloth = function() {
+const Cloth = function() {
   this.points = [];
 
-  var start_x = canvas.width / 2 - (cloth_width * spacing) / 2;
+  const start_x = canvas.width / 2 - (cloth_width * spacing) / 2;
 
-  for (var y = 0; y <= cloth_height; y++) {
-    for (var x = 0; x <= cloth_width; x++) {
-      var p = new Point(start_x + x * spacing, start_y + y * spacing);
+  for (let y = 0; y <= cloth_height; y++) {
+    for (let x = 0; x <= cloth_width; x++) {
+      const p = new Point(start_x + x * spacing, start_y + y * spacing);
 
       x != 0 && p.attach(this.points[this.points.length - 1]);
       y == 0 && p.pin(p.x, p.y);
@@ -170,22 +180,28 @@ var Cloth = function() {
 };
 
 Cloth.prototype.update = function() {
-  var i = physics_accuracy;
+  let i = physics_accuracy;
 
   while (i--) {
-    var p = this.points.length;
-    while (p--) this.points[p].resolve_constraints();
+    let p = this.points.length;
+    while (p--) {
+      this.points[p].resolve_constraints();
+    }
   }
 
   i = this.points.length;
-  while (i--) this.points[i].update(0.016);
+  while (i--) {
+    this.points[i].update(0.016);
+  }
 };
 
 Cloth.prototype.draw = function() {
   ctx.beginPath();
 
-  var i = cloth.points.length;
-  while (i--) cloth.points[i].draw();
+  let i = cloth.points.length;
+  while (i--) {
+    cloth.points[i].draw();
+  }
 
   ctx.stroke();
 };
@@ -204,7 +220,7 @@ function start() {
     mouse.button = e.which;
     mouse.px = mouse.x;
     mouse.py = mouse.y;
-    var rect = canvas.getBoundingClientRect();
+    const rect = canvas.getBoundingClientRect();
     (mouse.x = e.clientX - rect.left),
       (mouse.y = e.clientY - rect.top),
       (mouse.down = true);
@@ -219,7 +235,7 @@ function start() {
   canvas.onmousemove = function(e) {
     mouse.px = mouse.x;
     mouse.py = mouse.y;
-    var rect = canvas.getBoundingClientRect();
+    const rect = canvas.getBoundingClientRect();
     (mouse.x = e.clientX - rect.left),
       (mouse.y = e.clientY - rect.top),
       e.preventDefault();
