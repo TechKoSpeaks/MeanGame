@@ -36,7 +36,7 @@ let timeLeft = TIME_LIMIT;
 let timeElapsed = 0;
 let total_errors = 0;
 let errors = 0;
-let accuracy = 0;
+// let accuracy = 0;
 let characterTyped = 0;
 let current_quote = "";
 let quoteNo = 0;
@@ -193,8 +193,18 @@ function finishGame() {
     wpm_group.style.display = "block";
 }
 
+function sendResource() {
+    let resources = wpm * accuracyVal;
+    let idReference = $("#playerReference").val();
+    $.put("/api/players/" + idReference,
+    {
+        resource_inventory: resources,
+    }
+    )
+}
 
 
+// On focus for typing input in the input area box //
  $("#typingInput").on("focus", function() {
     console.log("Hello!");
     if (!isGameRunning) {
