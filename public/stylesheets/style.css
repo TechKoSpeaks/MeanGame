@@ -1,6 +1,6 @@
+/*This is the code for the text on the Jumbotron */
 .display-4 {
   text-align: center;
-  /* margin-bottom: auto; */
   font-family: "Special Elite", cursive;
 }
 
@@ -12,9 +12,6 @@ body {
   text-align: center;
   margin-bottom: auto;
   font-size: 200%;
-}
-
-.card {
 }
 
 .row {
@@ -46,14 +43,14 @@ body {
   background-color: rgb(4, 104, 4);
 }
 
-footer {
+.footer {
   position: relative;
   bottom: 0;
   width: 100%;
   text-align: center;
 }
 
-.footer h2 {
+.footer h5 {
   font-size: 20px;
 }
 
@@ -61,9 +58,9 @@ footer {
 .quoteTest {
   margin-right: 20px;
   margin-left: 20px;
+  margin-top: 8px;
   padding: 60px;
   height: 100%;
-  /* font-family: ; */
   background-color: #eff4f7;
   box-shadow: black 5px 8px 5px;
 }
@@ -93,12 +90,6 @@ footer {
   display: none;
 }
 
-/* .container { 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-}  */
-
 .header_text {
   text-transform: uppercase;
   font-size: 12px;
@@ -117,7 +108,6 @@ footer {
   font-size: 1.5rem;
   margin: 10px;
   padding: 25px;
-  /* box-shadow: black 5px 8px 5px;  */
 }
 
 .inputAreaContainer {
