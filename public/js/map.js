@@ -11,7 +11,6 @@ function createMap() {
     element: document.getElementById("mapDiagram"),
     scope: "usa",
     done: function(datamap) {
-      console.log(datamap);
       datamap.svg.selectAll(".datamaps-subunit").on("click", geography => {
         changeOwnership(geography);
         setLandColor(geography);
@@ -22,7 +21,7 @@ function createMap() {
       highlightBorderColor: "#bada55",
       popupTemplate: function(land, data) {
         const i = `<div class="hoverinfo">${land.properties.name}
-        Resource Cost: ${data.resourceCost} `;
+        Resource Cost: ${data.resource_cost} `;
         return i;
       },
       popupOnHover: true,
@@ -39,9 +38,15 @@ function createMap() {
 
 function changeOwnership(geography) {
   const stateTarget = geography.id;
-  if (States[stateTarget].isOwned === false) {
+  console.log(getResourceInventory() >= States[stateTarget].resource_cost);
+  console.log(States[stateTarget].resource_cost);
+  if (
+    States[stateTarget].isOwned === false &&
+    getResourceInventory() >= States[stateTarget].resource_cost
+  ) {
     States[stateTarget].isOwned = true;
   }
+  getResourceInventory();
 }
 
 function setLandColor(geography) {
@@ -51,6 +56,11 @@ function setLandColor(geography) {
   } else {
     States[stateTarget].fillKey = "defaultFill";
   }
-
   map.updateChoropleth(States, { reset: true });
+}
+
+function getResourceInventory() {
+  $.get("/api/resources/1", data => {
+    return data.inventory;
+  });
 }

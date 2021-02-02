@@ -8,8 +8,12 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/api/resources", (req, res) => {
-    db.Resource.findAll({}).then(dbResource => {
+  app.get("/api/resources/:id", (req, res) => {
+    db.Resource.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(dbResource => {
       res.json(dbResource);
     });
   });
