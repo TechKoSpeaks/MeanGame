@@ -1,9 +1,8 @@
-
-    <nav aria-label="breadcrumb">
+ <nav aria-label="breadcrumb">
       <ol class="breadcrumb justify-content-center">
-        <li class="breadcrumb-item"><a href="homepage.html">World Map </a></li>
-        <li class="breadcrumb-item"><a href="meanscore.html">Meanscore</a></li>
-        <li class="breadcrumb-item"><a href="highscore.html">Highscore</a></li>
+        <li class="breadcrumb-item"><a href="/homepage">World Map </a></li>
+        <li class="breadcrumb-item"><a href="/meanscore">Meanscore</a></li>
+        <li class="breadcrumb-item"><a href="/highscore">Highscore</a></li>
         <!-- <li class="breadcrumb-item active" aria-current="page">Data</li> -->
       </ol>
     </nav>
@@ -16,23 +15,20 @@
       <div class="quote">Click on the text box to start the test!</div>
       <button type="button" class="btn btn-outline-success">Start</button>
     </section>
-    <br /><br /><br /><br /><br />
-        <textarea id="typingInput"
-          class="input_area"
-          placeholder="Click to start and GET TO TYPIN!!"
-          oninput="processCurrentText()"
-          onfocus="startGame()"
-        >
- CLICK To Start and GET TO TYPING!
-            </textarea
-        >
-        <button
-          class="restart_btn btn btn-outline-success"
-          onclick="resetValues()"
-        >
-          Restart
-        </button>
-    </div>
+    <section class="inputAreaContainer">
+      <textarea
+        class="input_area"
+        placeholder="Click to start and GET TO TYPING!!"
+        oninput="processCurrentText()"
+        onfocus="startGame()"
+      ></textarea>
+      <button
+        class="restart_btn btn btn-outline-success"
+        onclick="resetValues()"
+      >
+        Restart
+      </button>
+    </section>
     <div class="header">
       <div class="wpm">
         <div class="header_text">WPM</div>
