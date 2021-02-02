@@ -8,7 +8,7 @@ createMap();
 function createMap() {
   $("#container").empty();
   map = new Datamap({
-    element: document.getElementById("container"),
+    element: document.getElementById("mapContainer"),
     scope: "usa",
     done: function(datamap) {
       console.log(datamap);
