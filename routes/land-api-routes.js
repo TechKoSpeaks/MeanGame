@@ -1,7 +1,7 @@
 // Requiring our models and passport as we've configured it
 const db = require("../models");
 
-module.exports = function(app) {
+module.exports = function (app) {
   // Add a new land
   app.post("/api/lands", (req, res) => {
     db.Land.create(req.body).then(dbLands => {
@@ -36,11 +36,11 @@ module.exports = function(app) {
   // update player resource to new resource amount
   // render map with updated state data
 
-  app.put("/api/lands/:id/purchase", (req, res) => {
+  app.put("/api/lands/:code/purchase", (req, res) => {
     Promise.all([
       db.Land.findOne({
         where: {
-          code: req.params.id
+          code: req.params.code
         }
       }),
       db.Resource.findOne({
@@ -76,5 +76,8 @@ module.exports = function(app) {
         console.log(err);
         res.status(400).end();
       });
+
+
+      console.log("it works");
   });
 };
