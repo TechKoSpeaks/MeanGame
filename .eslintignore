@@ -3,3 +3,4 @@ node_modules
 timer.js
 experiments/**
 public/js/states.js
+public/js/cloth.js
