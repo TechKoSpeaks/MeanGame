@@ -44,10 +44,6 @@ function changeOwnership(geography) {
     States[stateTarget].isOwned = true;
   }
 }
-// map.updateChoropleth({
-//   USA: {fillKey: 'LOW'},
-//   CAN: '#0fa0fa'
-// });
 
 function setLandColor(geography) {
   const stateTarget = geography.id;
