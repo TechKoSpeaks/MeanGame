@@ -1,6 +1,8 @@
 // define the time limit 
 let TIME_LIMIT = 40;
 
+let isGameRunning = false;
+
 // define quotes to be used 
 let quotes_array = [
     "<head>",
@@ -13,7 +15,7 @@ let quotes_array = [
     "</head> ",
 ];
 
-// selecting required elements 
+// selecting required elements //
 let timer_text = document.querySelector(".curr_time");
 let accuracy_text = document.querySelector(".curr_accuracy");
 let error_text = document.querySelector(".curr_errors");
@@ -27,19 +29,19 @@ let wpm_group = document.querySelector(".wpm");
 let error_group = document.querySelector(".errors");
 let accuracy_group = document.querySelector(".accuracy");
 
+// Quotes limit from API //
+let quoteLimit= 10;
+
 let timeLeft = TIME_LIMIT;
 let timeElapsed = 0;
 let total_errors = 0;
 let errors = 0;
-let accuracy = 0;
+// let accuracy = 0;
 let characterTyped = 0;
 let current_quote = "";
 let quoteNo = 0;
 let timer = null;
 
-// function createQuotes() {
-
-// }
 
 function updateQuote() {
     quote_text.textContent = null;
@@ -116,7 +118,6 @@ function processCurrentText() {
     }
 }
 
-
 function startGame() {
 
     resetValues();
@@ -126,7 +127,6 @@ function startGame() {
     clearInterval(timer);
     timer = setInterval(updateTimer, 1000);
 }
-
 
 
 function resetValues() {
@@ -167,29 +167,68 @@ function updateTimer() {
     }
 }
 
-function finishGame() { 
+function finishGame() {
     // stop the timer 
-    clearInterval(timer); 
-    
+    clearInterval(timer);
+
     // disable the input area 
-    input_area.disabled = true; 
-    
+    input_area.disabled = true;
+
     // show finishing text 
-    quote_text.textContent = "Click on restart to start a new game."; 
-    
+    quote_text.textContent = "Click on restart to start a new game.";
+
     // display restart button 
-    restart_btn.style.display = "block"; 
-    
+    restart_btn.style.display = "block";
+
     // calculate cpm and wpm 
-    cpm = Math.round(((characterTyped / timeElapsed) * 60)); 
-    wpm = Math.round((((characterTyped / 5) / timeElapsed) * 60)); 
-    
+    cpm = Math.round(((characterTyped / timeElapsed) * 60));
+    wpm = Math.round((((characterTyped / 5) / timeElapsed) * 60));
+
     // update cpm and wpm text 
-    cpm_text.textContent = cpm; 
-    wpm_text.textContent = wpm; 
-    
+    cpm_text.textContent = cpm;
+    wpm_text.textContent = wpm;
+
     // display the cpm and wpm 
-    cpm_group.style.display = "block"; 
-    wpm_group.style.display = "block"; 
-    } 
-    
+    cpm_group.style.display = "block";
+    wpm_group.style.display = "block";
+}
+
+function sendResource() {
+    let resources = wpm * accuracyVal;
+    let idReference = $("#playerReference").val();
+    $.put("/api/players/" + idReference,
+    {
+        resource_inventory: resources,
+    }
+    )
+}
+
+
+// On focus for typing input in the input area box //
+ $("#typingInput").on("focus", function() {
+    console.log("Hello!");
+    if (!isGameRunning) {
+       getQuote();
+        // quote request //
+        updateQuote();
+        // take response to set quotes array //
+
+        // Run start game //
+        startGame();
+    }
+});
+
+
+// Function for getting quotes from API //
+function getQuote() {
+    $.get("https://ron-swanson-quotes.herokuapp.com/v2/quotes/" + quoteLimit, (data) => {
+
+        quotes_array = [];
+        for (let j = 0; j < quoteLimit; j++) {
+            quotes_array[j] = data[j];
+        }
+        console.log(data);
+
+    })
+};
+getQuote();

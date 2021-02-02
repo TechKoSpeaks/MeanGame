@@ -1,4 +1,4 @@
-/* body { 
+body { 
     background-color: #290bcf; 
     color: black; 
     text-align: center; 
@@ -14,14 +14,14 @@
     margin-bottom: 20px; 
     font-size: 3rem; 
     color: black; 
-    }  */
+    } 
     
-    /* .header { 
+    .header { 
     display: flex; 
     align-items: center; 
-    }  */
+    } 
     
-    /* .timer, .errors, .accuracy, 
+    .timer, .errors, .accuracy, 
     .cpm, .wpm { 
     background-color: #5a5f28; 
     height: 60px; 
@@ -34,9 +34,9 @@
     
     .cpm, .wpm { 
     display: none; 
-    }  */
+    } 
     
-    /* .header_text { 
+    .header_text { 
     text-transform: uppercase; 
     font-size: 0.6rem; 
     font-weight: 600; 
@@ -47,8 +47,8 @@
     .curr_wpm { 
     font-size: 2.75rem; 
     } 
-     */
-    /* .quote { 
+    
+    .quote { 
     background-color: #7f69fc; 
     font-size: 1.5rem; 
     margin: 10px; 
@@ -57,7 +57,7 @@
     } 
     
     .input_area { 
-    background-color: #f7f7e2; 
+    background-color: #f5f5c6; 
     height: 80px; 
     width: 40%; 
     font-size: 1.5rem; 
@@ -85,4 +85,4 @@
     .correct_char { 
     color: darkgreen; 
     } 
-     */
+    

@@ -1,0 +1,62 @@
+
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb justify-content-center">
+        <li class="breadcrumb-item"><a href="homepage.html">World Map </a></li>
+        <li class="breadcrumb-item"><a href="meanscore.html">Meanscore</a></li>
+        <li class="breadcrumb-item"><a href="highscore.html">Highscore</a></li>
+        <!-- <li class="breadcrumb-item active" aria-current="page">Data</li> -->
+      </ol>
+    </nav>
+    <div class="jumbotron jumbotron-fluid bg-dark text-white">
+      <div class="container">
+        <h1 class="display-4">Meanest Game in the World!</h1>
+      </div>
+    </div>
+    <section class="quoteTest">
+      <div class="quote">Click on the text box to start the test!</div>
+      <button type="button" class="btn btn-outline-success">Start</button>
+    </section>
+    <br /><br /><br /><br /><br />
+        <textarea id="typingInput"
+          class="input_area"
+          placeholder="Click to start and GET TO TYPIN!!"
+          oninput="processCurrentText()"
+          onfocus="startGame()"
+        >
+ CLICK To Start and GET TO TYPING!
+            </textarea
+        >
+        <button
+          class="restart_btn btn btn-outline-success"
+          onclick="resetValues()"
+        >
+          Restart
+        </button>
+    </div>
+    <div class="header">
+      <div class="wpm">
+        <div class="header_text">WPM</div>
+        <div class="curr_wpm">100</div>
+      </div>
+      <div class="cpm">
+        <div class="header_text">CPM</div>
+        <div class="curr_cpm">100</div>
+      </div>
+      <div class="errors">
+        <div class="header_text">Errors</div>
+        <div class="curr_errors">0</div>
+      </div>
+      <div class="timer">
+        <div class="header_text">Time</div>
+        <div class="curr_time">60s</div>
+      </div>
+      <div class="accuracy">
+        <div class="header_text">% Accuracy</div>
+        <div class="curr_accuracy">100</div>
+      </div>
+    </div>
+    <footer>
+      <h5>Made with ❤️️ by The Squad</h5>
+      <p>&copy; 2021 The Meanest Game in the World</p>
+    </footer>
+<script src="timer.js"></script>
