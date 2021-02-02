@@ -1,39 +1,55 @@
 .display-4 {
   text-align: center;
   /* margin-bottom: auto; */
+  font-family: "Special Elite", cursive;
 }
 
-body{ background-color: rgb(4, 104, 4);}
+body {
+  background-color: rgb(4, 104, 4);
+}
 
 .breadcrumb {
   text-align: center;
+  margin-bottom: auto;
+  font-size: 200%;
 }
 
-.rightColumn {
-  margin-right: 20px;
-  padding: 60px;
-  clear: both;
-  float: right;
-  width: 70%;
+.card {
+}
+
+.row {
+  margin: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.mapContainer {
+  /* clear: both; */
+  /* float: right; */
+  /* width: 70%;  */
   height: 100%;
   /* font-family: ; */
+  background-color: rgb(4, 104, 4);
+}
+
+.box {
+  padding: 40px;
   background-color: #eff4f7;
 }
 
 .resources {
-  padding: 40px;
-  clear: both;
-  width: 20%;
+  /* clear: both; */
+  /* width: 20%; */
   height: 100%;
   /* float: left; */
   display: inline-block;
-  margin-left: 20px;
-  background-color: #eff4f7;
+  background-color: rgb(4, 104, 4);
 }
 
 footer {
-  padding: 30px;
-  clear: both;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   text-align: center;
 }
 
@@ -44,88 +60,107 @@ footer {
 /* Code below belongs to meanscore css */
 .quoteTest {
   margin-right: 20px;
+  margin-left: 20px;
   padding: 60px;
-  clear: both;
-  float: right;
-  width: 100%;
   height: 100%;
   /* font-family: ; */
   background-color: #eff4f7;
+  box-shadow: black 5px 8px 5px;
 }
 
-.header { 
-  display: flex; 
-  align-items: center; 
-} 
+.header {
+  display: flex;
+  justify-content: center;
+}
 
-.timer, .errors, .accuracy, .cpm, .wpm { 
-  background-color: #5a5f28; 
-  height: 60px; 
-  width: 70px; 
-  margin: 8px; 
-  padding: 12px; 
-  border-radius: 20%; 
-  box-shadow: black 5px 8px 5px; 
-} 
-  
-.cpm, .wpm { 
-  display: none; 
-} 
+/* this is the style changed for the boxes */
+.timer,
+.errors,
+.accuracy,
+.cpm,
+.wpm {
+  background-color: #5a5f28;
+  height: 105px;
+  width: 100px;
+  margin: 8px;
+  padding: 12px;
+  border-radius: 20%;
+  box-shadow: black 5px 8px 5px;
+}
+
+.cpm,
+.wpm {
+  display: none;
+}
 
 /* .container { 
-  display: flex; 
-  flex-direction: column; 
-  align-items: center; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
 }  */
 
-.header_text { 
-  text-transform: uppercase; 
-  font-size: 0.6rem; 
-  font-weight: 600; 
-} 
-  
-.curr_time, .curr_errors, .curr_accuracy, .curr_cpm, .curr_wpm { 
-  font-size: 2.75rem; 
-} 
-  
-.quote { 
-  font-size: 1.5rem; 
-  margin: 10px; 
-  padding: 25px; 
+.header_text {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.curr_time,
+.curr_errors,
+.curr_accuracy,
+.curr_cpm,
+.curr_wpm {
+  font-size: 2.75rem;
+}
+
+.quote {
+  font-size: 1.5rem;
+  margin: 10px;
+  padding: 25px;
   /* box-shadow: black 5px 8px 5px;  */
-} 
-  
-.input_area { 
-  background-color: #f5f5c6; 
-  height: 90px; 
-  width: 90%; 
-  font-size: 1.5rem; 
-  font-weight: 600; 
-  margin: 15px; 
-  padding: 20px; 
-  border: 0px; 
-  box-shadow: black 5px 8px 5px; 
-} 
-  
-.restart_btn { 
-  display: none; 
+}
+
+.inputAreaContainer {
+  display: block;
+  background-color: #f5f5c6;
+  padding: 20px;
+  margin: 20px;
+  border: 0px;
+  box-shadow: black 5px 8px 5px;
+}
+
+.input_area {
+  width: 100%;
+  border: 0px;
+  background-color: #f5f5c6;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: black;
+}
+
+.restart_btn {
+  display: none;
   /* background-color: #326765;  */
-  font-size: 1.5rem; 
-  padding: 10px; 
-  border: 0px; 
-  box-shadow: black 5px 8px 5px; 
-} 
-  
-.incorrect_char { 
-  color: red; 
-  text-decoration: underline; 
-} 
-  
-.correct_char { 
-  color: darkgreen; 
-} 
+  font-size: 1.5rem;
+  padding: 10px;
+  border: 0px;
+  box-shadow: black 5px 8px 5px;
+}
+
+.incorrect_char {
+  color: red;
+  text-decoration: underline;
+}
+
+.correct_char {
+  color: darkgreen;
+}
 
 /* highscore page */
 .highscore {
-  width: 50%; 
+  width: 50%;
+  height: 100%;
+  padding: 20px;
+  background-color: white;
+  margin: 0 auto;
 }
