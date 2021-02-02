@@ -1,0 +1,15 @@
+<form class="playerInputform">
+    <input class="nameInput">Name</input>
+    <submit class="btn">Button!</submit>
+</form>
+<script>
+    $(".playerInputform").on("submit", event => {
+        event.preventDefault;
+        let player = {
+            name: $(".nameInput").val(),
+            resource_inventory: 0,
+            highscore: 0
+        }
+$.post("/api/players", player)
+    })
+</script>
