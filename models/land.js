@@ -22,11 +22,16 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.BOOLEAN,
       defaultValue: false
     },
-    // eslint-disable-next-line camelcase
-    owned_by: {
-      type: DataTypes.INTEGER,
-      allowNull: true
+    fillKey: {
+      type: DataTypes.STRING,
+      defaultValue: "defaultFill"
     }
+    // },
+    // // eslint-disable-next-line camelcase
+    // owned_by: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: true
+    // }
   });
 
   // Post.associate = function(models) {

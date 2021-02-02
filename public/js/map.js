@@ -6,9 +6,9 @@ let map;
 createMap();
 
 function createMap() {
-  $("#container").empty();
+  $("#mapDiagram").empty();
   map = new Datamap({
-    element: document.getElementById("container"),
+    element: document.getElementById("mapDiagram"),
     scope: "usa",
     done: function(datamap) {
       console.log(datamap);
@@ -29,7 +29,6 @@ function createMap() {
       highlightBorderWidth: 3
     },
     fills: {
-      // notBrought: "#D3D3D3",
       [broughtByPlayer]: "#228B22",
       [broughtByOpponent]: "#B22222",
       defaultFill: "#D3D3D3"
@@ -47,20 +46,11 @@ function changeOwnership(geography) {
 
 function setLandColor(geography) {
   const stateTarget = geography.id;
-  if (States[stateTarget].isOwned === true) {
-    if (States[stateTarget].ownedBy === "Rockefeller") {
-      States[stateTarget].fillKey = broughtByPlayer;
-    } else {
-      States[stateTarget].fillKey = broughtByOpponent;
-    }
+  if (States[stateTarget].isOwned) {
+    States[stateTarget].fillKey = broughtByPlayer;
   } else {
     States[stateTarget].fillKey = "defaultFill";
   }
 
-  console.log(States[stateTarget].fillKey);
-  // map.updateChoropleth(
-  //   { [stateTarget]: { fillKey: States[stateTarget].fillKey } },
-  //   { reset: false }
-  // );
   map.updateChoropleth(States, { reset: true });
 }
