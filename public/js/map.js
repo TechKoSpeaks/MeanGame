@@ -3,19 +3,24 @@ const broughtByPlayer = "broughtByPlayer";
 const broughtByOpponent = "broughtByOpponent";
 
 let map;
-// eslint-disable-next-line no-unused-vars
-const playerResourceInventory = 0;
-createMap();
-updateLandArray();
+let States = {};
+// createMap();
+
+init();
+
+function init() {
+  updateLandArray();
+}
 
 function updateLandArray() {
   $.get("/api/lands", data => {
     data.forEach(land => {
       States[land.code] = land;
-      console.log(land.code);
-      console.log(States[land.code]);
     });
-    console.log(data);
+    console.log(States);
+  }).then(() => {
+    createMap();
+    setAllLandColor();
   });
 }
 
@@ -24,7 +29,7 @@ function createMap() {
   map = new Datamap({
     element: document.getElementById("mapDiagram"),
     scope: "usa",
-    done: function(datamap) {
+    done: function (datamap) {
       datamap.svg.selectAll(".datamaps-subunit").on("click", geography => {
         //Do nothing if land is already owned
         if (geography.is_owned) {
@@ -38,7 +43,7 @@ function createMap() {
     },
     geographyConfig: {
       highlightBorderColor: "#bada55",
-      popupTemplate: function(land, data) {
+      popupTemplate: function (land, data) {
         const i = `<div class="hoverinfo">${land.properties.name}
         Resource Cost: ${data.resource_cost} `;
         return i;
@@ -99,3 +104,14 @@ function setLandColor(geography) {
   }
   map.updateChoropleth(States, { reset: true });
 }
+
+function setAllLandColor() {
+  for (const code in States)
+    if (States[code].is_owned) {
+      States[code].fillKey = broughtByPlayer;
+    } else {
+      States[code].fillKey = "defaultFill";
+    }
+  map.updateChoropleth(States, { reset: false });
+};
+

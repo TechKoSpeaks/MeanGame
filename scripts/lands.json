@@ -1,5 +1,5 @@
 [
-  { "code": "AZ", "name": "Arizona", "resource_cost": 15, "is_owned": false },
+  { "code": "AZ", "name": "Arizona", "resource_cost": 15, "is_owned": true },
   { "code": "CO", "name": "Colorado", "resource_cost": 15, "is_owned": false },
   { "code": "DE", "name": "Delaware", "resource_cost": 15, "is_owned": false },
   { "code": "FL", "name": "Florida", "resource_cost": 15, "is_owned": false },
@@ -29,7 +29,7 @@
     "is_owned": false
   },
   { "code": "MO", "name": "Missouri", "resource_cost": 15, "is_owned": false },
-  { "code": "MT", "name": "Montana", "resource_cost": 15, "is_owned": false },
+  { "code": "MT", "name": "Montana", "resource_cost": 15, "is_owned": true },
   {
     "code": "NC",
     "name": "North Carolina",
