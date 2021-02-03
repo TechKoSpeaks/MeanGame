@@ -3,7 +3,7 @@ const broughtByPlayer = "broughtByPlayer";
 const broughtByOpponent = "broughtByOpponent";
 
 let map;
-let States = {};
+const States = {};
 // createMap();
 
 init();
@@ -21,6 +21,7 @@ function updateLandArray() {
   }).then(() => {
     createMap();
     setAllLandColor();
+    createMap();
   });
 }
 
@@ -29,21 +30,19 @@ function createMap() {
   map = new Datamap({
     element: document.getElementById("mapDiagram"),
     scope: "usa",
-    done: function (datamap) {
+    done: function(datamap) {
       datamap.svg.selectAll(".datamaps-subunit").on("click", geography => {
         //Do nothing if land is already owned
         if (geography.is_owned) {
           return;
         }
-        changeOwnership(geography);
-        // purchaseLand(geography);
-        setLandColor(geography);
-        createMap();
+        // changeOwnership(geography);
+        purchaseLand(geography);
       });
     },
     geographyConfig: {
       highlightBorderColor: "#bada55",
-      popupTemplate: function (land, data) {
+      popupTemplate: function(land, data) {
         const i = `<div class="hoverinfo">${land.properties.name}
         Resource Cost: ${data.resource_cost} `;
         return i;
@@ -70,6 +69,9 @@ function purchaseLand(geography, callback) {
   })
     .then(data => {
       console.log(data);
+      if (data.response === "Successful") {
+        updateLandArray();
+      }
       callback(data);
     })
     .fail(error => {
@@ -86,32 +88,15 @@ function purchaseLand(geography, callback) {
 // update player resource to new resource amount
 // render map with updated state data
 
-function changeOwnership(geography) {
-  const stateTarget = geography.id;
-  if (States[stateTarget].is_owned === false) {
-    // eslint-disable-next-line camelcase
-    States[stateTarget].is_owned = true;
-  }
-  // getResourceInventory();
-}
-
-function setLandColor(geography) {
-  const stateTarget = geography.id;
-  if (States[stateTarget].is_owned) {
-    States[stateTarget].fillKey = broughtByPlayer;
-  } else {
-    States[stateTarget].fillKey = "defaultFill";
-  }
-  map.updateChoropleth(States, { reset: true });
-}
-
 function setAllLandColor() {
-  for (const code in States)
-    if (States[code].is_owned) {
-      States[code].fillKey = broughtByPlayer;
-    } else {
-      States[code].fillKey = "defaultFill";
+  for (const code in States) {
+    {
+      if (States[code].is_owned) {
+        States[code].fillKey = broughtByPlayer;
+      } else {
+        States[code].fillKey = "defaultFill";
+      }
     }
-  map.updateChoropleth(States, { reset: false });
-};
-
+    map.updateChoropleth(States, { reset: true });
+  }
+}

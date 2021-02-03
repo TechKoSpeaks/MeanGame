@@ -50,6 +50,12 @@ module.exports = function(app) {
       })
     ])
       .then(([dbLand, dbResource]) => {
+        if (dbLand.is_owned) {
+          res.json({
+            response: "Already Owned"
+          });
+          return;
+        }
         const resourceRequirement = dbLand.resource_cost;
         const resources = dbResource.inventory;
 
@@ -65,11 +71,11 @@ module.exports = function(app) {
       .then(([dbLand, dbResource]) => {
         if (dbLand && dbResource) {
           res.json({
-            success: true,
+            response: "Successful",
             resource: dbResource
           });
         } else {
-          res.json({ success: false });
+          res.json({ response: "Not Enough Resources" });
         }
       })
       .catch(err => {
