@@ -5,11 +5,11 @@ The Meanest Game in the World is an educational typing game testing users for ty
 The game ends when the user runs out of time.
 
 In the image below you can see how the app works:
-![quizImg](public/assets/typingQuizM.png)
+![quizImg](./docs/typingQuizM.png)
 As you can see the random quote populates on the white box and the user can will be prompted try to type same quote as fast and accurate as possible on the yellow box below. As the user is typing a timer will be running at the top of the boxes, once the time is up the results will be shown. If makes a typing mistake the mistake will appear on red, just like the example above. If the user decides to restart the game, they can click on the restart buttom. 
 
 The image below is an example of what the homepage of the app looks like:
-![homepage](public/assets/homepage.png)
+![homepage](./docs/homepage.png)
 The homepage populates the DataMaps API. When the user has enough resources(points) to conquer a new state, the state purchased change colors. If a state is colored green then it means the user has purchased it. If the user hovers over a state the state will appear orange. 
 
 ### Contributers
