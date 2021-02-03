@@ -10,6 +10,45 @@ init();
 
 function init() {
   updateLandArray();
+  updateResourceText();
+  gameOver();
+}
+
+function gameOver() {
+  if (checkGameOver()) {
+    //run script
+    $.ajax({
+      url: "/api/lands/reset",
+      type: "PUT"
+    })
+      // eslint-disable-next-line no-unused-vars
+      .then(data => {
+        createMap();
+      })
+      .fail(error => {
+        console.log(error);
+      });
+  }
+}
+
+function checkGameOver() {
+  let gameOver = true;
+
+  $.get("/api/lands", data => {
+    data.forEach(land => {
+      if (States[land.code].is_owned) {
+        gameOver = false;
+        return gameOver;
+      }
+    });
+    return gameOver;
+  });
+}
+
+function updateResourceText() {
+  $.get("/api/resources/1", data => {
+    $(".resourceAmount").text(data.inventory);
+  });
 }
 
 function updateLandArray() {
@@ -38,6 +77,8 @@ function createMap() {
         }
         // changeOwnership(geography);
         purchaseLand(geography);
+        updateResourceText();
+        gameOver();
       });
     },
     geographyConfig: {

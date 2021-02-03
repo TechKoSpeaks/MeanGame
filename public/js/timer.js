@@ -1,7 +1,6 @@
 // define the time limit 
 let TIME_LIMIT = 40;
 
-let isGameRunning = false;
 
 // define quotes to be used 
 let quotes_array = [
@@ -30,7 +29,7 @@ let error_group = document.querySelector(".errors");
 let accuracy_group = document.querySelector(".accuracy");
 
 // Quotes limit from API //
-let quoteLimit= 10;
+let quoteLimit = 10;
 
 let timeLeft = TIME_LIMIT;
 let timeElapsed = 0;
@@ -41,6 +40,7 @@ let characterTyped = 0;
 let current_quote = "";
 let quoteNo = 0;
 let timer = null;
+let accuracyVal;
 
 
 function updateQuote() {
@@ -102,7 +102,7 @@ function processCurrentText() {
 
     // update accuracy text 
     let correctCharacters = (characterTyped - (total_errors + errors));
-    let accuracyVal = ((correctCharacters / characterTyped) * 100);
+    accuracyVal = ((correctCharacters / characterTyped) * 100);
     accuracy_text.textContent = Math.round(accuracyVal);
 
     // if current text is completely typed 
@@ -191,24 +191,39 @@ function finishGame() {
     // display the cpm and wpm 
     cpm_group.style.display = "block";
     wpm_group.style.display = "block";
+    sendResource();
 }
 
 function sendResource() {
     let resources = wpm * accuracyVal;
-    let idReference = $("#playerReference").val();
-    $.put("/api/players/" + idReference,
-    {
-        resource_inventory: resources,
-    }
-    )
+    let gainedResources = { inventory: resources };
+    // let playerResource = 0;
+    // $.get("/api/resources/1", (data) => {
+    //     playerResource = data.inventory;
+    // }).then()
+
+    $.ajax({
+        url: `/api/resources/1`,
+        type: "PUT",
+        data: gainedResources
+    })
+        .then(data => {
+            console.log(data);
+            // callback(data);
+        })
+        .fail(error => {
+            console.log(error);
+        });
 }
 
+let isGameRunning = false;
 
 // On focus for typing input in the input area box //
- $("#typingInput").on("focus", function() {
+$("#typingInput").on("focus", function (event) {
     // console.log("Hello!");
-    if (!isGameRunning) {
-       getQuote();
+    if (isGameRunning === false) {
+        isGameRunning = true;
+        getQuote();
         // quote request //
         updateQuote();
         // take response to set quotes array //

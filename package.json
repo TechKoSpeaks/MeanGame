@@ -9,15 +9,16 @@
     "lint": "eslint --quiet .",
     "fix": "eslint --fix .",
     "watch": "nodemon server.js",
-    "seed:lands" : "node scripts/seedlands.js",
-    "seed:resources" : "node scripts/seedresources.js",
-    "seed:all" : "node scripts/seedresources.js && node scripts/seedlands.js"
+    "seed:lands": "node scripts/seedlands.js",
+    "seed:resources": "node scripts/seedresources.js",
+    "seed:all": "node scripts/seedresources.js && node scripts/seedlands.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "2.4.3",
+    "child_process": "^1.0.2",
     "datamaps": "^0.5.9",
     "dotenv": "^8.2.0",
     "express": "^4.17.0",
