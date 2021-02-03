@@ -9,7 +9,9 @@
     "lint": "eslint --quiet .",
     "fix": "eslint --fix .",
     "watch": "nodemon server.js",
-    "seed:lands" : "node scripts/seedlands.js"
+    "seed:lands" : "node scripts/seedlands.js",
+    "seed:resources" : "node scripts/seedresources.js",
+    "seed:all" : "node scripts/seedresources.js && node scripts/seedlands.js"
   },
   "keywords": [],
   "author": "",

@@ -2,7 +2,7 @@ const db = require("../models");
 const lands = require("./lands.json");
 
 db.sequelize
-  .sync({ force: true })
+  .sync({ force: false })
   .then(() => {
     return db.Land.bulkCreate(lands);
   })

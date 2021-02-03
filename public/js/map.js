@@ -3,19 +3,25 @@ const broughtByPlayer = "broughtByPlayer";
 const broughtByOpponent = "broughtByOpponent";
 
 let map;
-// eslint-disable-next-line no-unused-vars
-const playerResourceInventory = 0;
-createMap();
-updateLandArray();
+const States = {};
+// createMap();
+
+init();
+
+function init() {
+  updateLandArray();
+}
 
 function updateLandArray() {
   $.get("/api/lands", data => {
     data.forEach(land => {
       States[land.code] = land;
-      console.log(land.code);
-      console.log(States[land.code]);
     });
-    console.log(data);
+    console.log(States);
+  }).then(() => {
+    createMap();
+    setAllLandColor();
+    createMap();
   });
 }
 
@@ -30,10 +36,8 @@ function createMap() {
         if (geography.is_owned) {
           return;
         }
-        changeOwnership(geography);
-        // purchaseLand(geography);
-        setLandColor(geography);
-        createMap();
+        // changeOwnership(geography);
+        purchaseLand(geography);
       });
     },
     geographyConfig: {
@@ -65,6 +69,9 @@ function purchaseLand(geography, callback) {
   })
     .then(data => {
       console.log(data);
+      if (data.response === "Successful") {
+        updateLandArray();
+      }
       callback(data);
     })
     .fail(error => {
@@ -81,21 +88,15 @@ function purchaseLand(geography, callback) {
 // update player resource to new resource amount
 // render map with updated state data
 
-function changeOwnership(geography) {
-  const stateTarget = geography.id;
-  if (States[stateTarget].is_owned === false) {
-    // eslint-disable-next-line camelcase
-    States[stateTarget].is_owned = true;
+function setAllLandColor() {
+  for (const code in States) {
+    {
+      if (States[code].is_owned) {
+        States[code].fillKey = broughtByPlayer;
+      } else {
+        States[code].fillKey = "defaultFill";
+      }
+    }
+    map.updateChoropleth(States, { reset: true });
   }
-  // getResourceInventory();
-}
-
-function setLandColor(geography) {
-  const stateTarget = geography.id;
-  if (States[stateTarget].is_owned) {
-    States[stateTarget].fillKey = broughtByPlayer;
-  } else {
-    States[stateTarget].fillKey = "defaultFill";
-  }
-  map.updateChoropleth(States, { reset: true });
 }
