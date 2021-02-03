@@ -16,6 +16,24 @@ module.exports = function(app) {
     });
   });
 
+  app.put("/api/lands/reset", (req, res) => {
+    console.log("update");
+    db.Land.update(
+      {
+        // eslint-disable-next-line camelcase
+        is_owned: false,
+        fillKey: "defaultFill"
+      },
+      {
+        where: {
+          // eslint-disable-next-line camelcase
+          is_owned: true
+        }
+      }
+    ).then(dbLand => {
+      res.json(dbLand);
+    });
+  });
   // Route for updating land data
   app.put("/api/lands/:id", (req, res) => {
     db.Land.update(req.body, {
