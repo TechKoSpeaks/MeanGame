@@ -36,11 +36,11 @@ module.exports = function(app) {
   // update player resource to new resource amount
   // render map with updated state data
 
-  app.put("/api/lands/:id/purchase", (req, res) => {
+  app.put("/api/lands/:code/purchase", (req, res) => {
     Promise.all([
       db.Land.findOne({
         where: {
-          code: req.params.id
+          code: req.params.code
         }
       }),
       db.Resource.findOne({
@@ -50,6 +50,12 @@ module.exports = function(app) {
       })
     ])
       .then(([dbLand, dbResource]) => {
+        if (dbLand.is_owned) {
+          res.json({
+            response: "Already Owned"
+          });
+          return;
+        }
         const resourceRequirement = dbLand.resource_cost;
         const resources = dbResource.inventory;
 
@@ -65,11 +71,11 @@ module.exports = function(app) {
       .then(([dbLand, dbResource]) => {
         if (dbLand && dbResource) {
           res.json({
-            success: true,
+            response: "Successful",
             resource: dbResource
           });
         } else {
-          res.json({ success: false });
+          res.json({ response: "Not Enough Resources" });
         }
       })
       .catch(err => {
